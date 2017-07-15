@@ -10364,6 +10364,7 @@ void readConfiguration(int argc, char **argv)
         g_dumpSymbolMap = TRUE;
         break;
       case 'v':
+        msg("%s\n","zendapi modified doxygen");
         msg("%s\n",versionString);
         cleanUpDoxygen();
         exit(0);

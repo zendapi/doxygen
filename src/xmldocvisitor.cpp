@@ -115,7 +115,7 @@ void XmlDocVisitor::visit(DocWhiteSpace *w)
   }
   else
   {
-    m_t << " ";
+    m_t << w->chars();
   }
 }
 

@@ -781,6 +781,10 @@ static void generateXMLForMember(MemberDef *md,FTextStream &ti,FTextStream &t,De
     t << " raise=\"";
     if (md->isRaisable()) t << "yes"; else t << "no";
     t << "\"";
+  } else if (md->memberType() == MemberType_Enumeration) {
+      t << " strong=\"";
+      if (md->isStrong()) t << "yes"; else t << "no";
+      t << "\"";
   }
 
   t << ">" << endl;
@@ -934,6 +938,11 @@ static void generateXMLForMember(MemberDef *md,FTextStream &ti,FTextStream &t,De
   
   if (md->memberType()==MemberType_Enumeration) // enum
   {
+    if (!md->enumBaseType().isEmpty()) {
+       t << "        <underType>";
+       writeXMLString(t, md->enumBaseType());
+       t << "</underType>" << endl;
+    }
     MemberList *enumFields = md->enumFieldList();
     if (enumFields)
     {
