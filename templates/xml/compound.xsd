@@ -124,7 +124,7 @@
       <xsd:element name="templateparamlist" type="templateparamlistType" minOccurs="0" />
       <xsd:element name="type" type="linkedTextType" minOccurs="0" />
       <xsd:element name="definition" type="linkedTextType" minOccurs="0" />
-      <xsd:element name="argsstring" minOccurs="0" />
+      <xsd:element name="argsstring" type="linkedTextType" minOccurs="0" />
       <xsd:element name="name" />
       <xsd:element name="read" minOccurs="0" />
       <xsd:element name="write" minOccurs="0" />

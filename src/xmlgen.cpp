@@ -809,7 +809,9 @@ static void generateXMLForMember(MemberDef *md,FTextStream &ti,FTextStream &t,De
         t << convertToXML(md->definition());
     }
     t << "</definition>" << endl;
-    t << "        <argsstring>" << convertToXML(md->argsString()) << "</argsstring>" << endl;
+    t << "        <argsstring>";
+    linkifyText(TextGeneratorXMLImpl(t),def,md->getBodyDef(),md,md->argsString());
+    t << "</argsstring>" << endl;
   }
 
   t << "        <name>" << convertToXML(md->name()) << "</name>" << endl;
