@@ -123,13 +123,13 @@
     <xsd:sequence>
       <xsd:element name="templateparamlist" type="templateparamlistType" minOccurs="0" />
       <xsd:element name="type" type="linkedTextType" minOccurs="0" />
-      <xsd:element name="definition" minOccurs="0" />
+      <xsd:element name="definition" type="linkedTextType" minOccurs="0" />
       <xsd:element name="argsstring" minOccurs="0" />
       <xsd:element name="name" />
       <xsd:element name="read" minOccurs="0" />
       <xsd:element name="write" minOccurs="0" />
       <xsd:element name="bitfield" minOccurs="0" />
-      <xsd:element name="underType" minOccurs="0" />
+      <xsd:element name="undertype" minOccurs="0" />
       <xsd:element name="reimplements" type="reimplementType" minOccurs="0" maxOccurs="unbounded" />
       <xsd:element name="reimplementedby" type="reimplementType" minOccurs="0" maxOccurs="unbounded" />
       <xsd:element name="param" type="paramType" minOccurs="0" maxOccurs="unbounded" />

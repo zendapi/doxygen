@@ -802,7 +802,13 @@ static void generateXMLForMember(MemberDef *md,FTextStream &ti,FTextStream &t,De
     t << "        <type>";
     linkifyText(TextGeneratorXMLImpl(t),def,md->getBodyDef(),md,typeStr);
     t << "</type>" << endl;
-    t << "        <definition>" << convertToXML(md->definition()) << "</definition>" << endl;
+    t << "        <definition>";
+    if (md->memberType() == MemberType_Friend) {
+        linkifyText(TextGeneratorXMLImpl(t),def,md->getBodyDef(),md,md->definition());
+    } else {
+        t << convertToXML(md->definition());
+    }
+    t << "</definition>" << endl;
     t << "        <argsstring>" << convertToXML(md->argsString()) << "</argsstring>" << endl;
   }
 
@@ -939,9 +945,9 @@ static void generateXMLForMember(MemberDef *md,FTextStream &ti,FTextStream &t,De
   if (md->memberType()==MemberType_Enumeration) // enum
   {
     if (!md->enumBaseType().isEmpty()) {
-       t << "        <underType>";
+       t << "        <undertype>";
        writeXMLString(t, md->enumBaseType());
-       t << "</underType>" << endl;
+       t << "</undertype>" << endl;
     }
     MemberList *enumFields = md->enumFieldList();
     if (enumFields)
